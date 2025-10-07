@@ -29,6 +29,8 @@
             padding: 15px;
             text-align: center;
             color: #ffffff;
+            position: relative;
+            z-index: 10;
         }
 
         .ui-bar h1 {
@@ -55,10 +57,16 @@
         .game-card {
             background-color: #c6c6c6;
             border: 4px solid #3e3e3e;
-            box-shadow: inset 0 0 0 4px #707070;
+            box-shadow: inset 0 0 0 4px #707070, 0 5px 10px rgba(0,0,0,0.3);
             width: 300px;
             display: flex;
             flex-direction: column;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: inset 0 0 0 4px #707070, 0 15px 25px rgba(0,0,0,0.5);
         }
 
         .game-image {
@@ -75,6 +83,11 @@
             object-fit: contain;
             display: block;
             image-rendering: pixelated;
+            transition: filter 0.3s ease-in-out; 
+        }
+
+        .game-card:hover .game-image img {
+            filter: brightness(1.2);
         }
         
         .terraria-border {
@@ -94,6 +107,12 @@
             margin: 0 0 10px 0;
             color: #ffffff;
             text-shadow: 2px 2px #3e3e3e;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        .game-card:hover .game-info h2 {
+            color: #ffffff;
+            text-shadow: 0 0 10px #FFD700;
         }
 
         .game-info p {
